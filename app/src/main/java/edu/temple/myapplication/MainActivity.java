@@ -19,18 +19,23 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
  Spinner spinner1;
- Layout myLayout;
- TextView imageView;
+ View layout;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
          spinner1 = findViewById(R.id.spinner);
-        imageView = findViewById(R.id.textView2);
+
+        layout = findViewById(R.id.layOut);
          ArrayList<String> colors = new ArrayList<String>();
          colors.add("Red");
          colors.add("Blue");
          colors.add("Green");
+         colors.add("Pink");
+        colors.add("Gray");
+        colors.add("White");
+        colors.add("Yellow");
 
         final BaseAdapter adapter = new ColorsAdapter(MainActivity.this,colors);
         spinner1.setAdapter(adapter);
@@ -40,11 +45,13 @@ public class MainActivity extends AppCompatActivity {
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 String p = parent.getItemAtPosition(position).toString();
                 Toast.makeText(MainActivity.this, p, Toast.LENGTH_LONG).show();
+                view.setBackgroundColor(Color.WHITE);
+                layout.setBackgroundColor(Color.MAGENTA);
                 if (p.matches("Red")) {
                     Toast.makeText(MainActivity.this, "Matches with red", Toast.LENGTH_LONG).show();
-                    imageView.setBackgroundColor(Color.RED);
+
                 } else if (p.matches("Orange")) {
-                    imageView.setBackgroundColor(Color.BLUE);
+
                 } //else if (color.matches("Yellow")) {
 //                    myLayout.setBackgroundColor(Color.RED);
 //                } else if (color.matches("Green")) {
