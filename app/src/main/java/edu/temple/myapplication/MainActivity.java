@@ -36,6 +36,7 @@ public class MainActivity extends AppCompatActivity {
         colors.add("Gray");
         colors.add("White");
         colors.add("Yellow");
+        colors.add("Cyan");
 
         final BaseAdapter adapter = new ColorsAdapter(MainActivity.this,colors);
         spinner1.setAdapter(adapter);
@@ -44,22 +45,30 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 String p = parent.getItemAtPosition(position).toString();
-                Toast.makeText(MainActivity.this, p, Toast.LENGTH_LONG).show();
+                Toast.makeText(MainActivity.this, p, Toast.LENGTH_SHORT).show();
                 view.setBackgroundColor(Color.WHITE);
-                layout.setBackgroundColor(Color.MAGENTA);
+
+               // layout.setBackgroundColor();
                 if (p.matches("Red")) {
-                    Toast.makeText(MainActivity.this, "Matches with red", Toast.LENGTH_LONG).show();
 
-                } else if (p.matches("Orange")) {
+                    layout.setBackgroundColor(Color.RED);
 
-                } //else if (color.matches("Yellow")) {
-//                    myLayout.setBackgroundColor(Color.RED);
-//                } else if (color.matches("Green")) {
-//                    myLayout.setBackgroundColor(Color.RED);
-//                }else if (color.matches("Blue")) {
-//                    myLayout.setBackgroundColor(Color.RED);
-//            }
-               // myLayout.setBackgroundColor(Color.RED);
+                } else if (p.matches("Blue")) {
+                    layout.setBackgroundColor(Color.BLUE);
+                } else if (p.matches("Green")) {
+                    layout.setBackgroundColor(Color.GREEN);
+                } else if (p.matches("Pink")) {
+                    layout.setBackgroundColor(Color.MAGENTA);
+                }else if (p.matches("Gray")) {
+                    layout.setBackgroundColor(Color.GRAY);
+            } else if (p.matches("White")){
+                    layout.setBackgroundColor(Color.WHITE);
+                }else if (p.matches("Yellow")){
+                    layout.setBackgroundColor(Color.YELLOW);
+                }else if (p.matches("Cyan")){
+                    layout.setBackgroundColor(Color.CYAN);
+                }
+
             }
 
             @Override

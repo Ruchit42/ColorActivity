@@ -53,6 +53,8 @@ public class ColorsAdapter extends BaseAdapter {
                 textView.setBackgroundColor(Color.WHITE);
             }else if (position == 6 ){
                 textView.setBackgroundColor(Color.YELLOW);
+            } else if (position ==7 ){
+                textView.setBackgroundColor(Color.CYAN);
             }
             textView.setText(getItem(position).toString());
 
